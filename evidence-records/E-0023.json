@@ -1,0 +1,57 @@
+{
+  "evidence_id": "E-0023",
+  "schema_version": "0.1",
+  "assessment_id": "A-C9-2016",
+  "evidence_type": "filesystem_observation",
+  "source": {
+    "tool": "find, awk, sed",
+    "tool_version": null,
+    "method": "web_content_and_server_startup_inventory",
+    "collector": "Codex-assisted static analysis; analyst review pending",
+    "collection_time": "2026-08-29T23:10:21.909Z"
+  },
+  "target_context": {
+    "target_component": "/web and /usr/bin/httpd",
+    "interface": null,
+    "target_address": null
+  },
+  "observation": {
+    "summary": "The bounded content-root scan found /web, containing 296 files, 19 directories, no symlinks, and 2,212,700 regular-file bytes; /usr/bin/httpd is present and started by rcS, but no explicit document-root directive was established.",
+    "structured_data": {
+      "content_root_candidate": "/web",
+      "files": 296,
+      "directories": 19,
+      "symlinks": 0,
+      "regular_file_bytes": 2212700,
+      "server_binary": "/usr/bin/httpd",
+      "explicit_document_root_confirmed": false
+    }
+  },
+  "provenance": {
+    "artifact_id": "AR-1040",
+    "source_locator": {
+      "line_start": 1,
+      "line_end": 1,
+      "rootfs_path": "/web"
+    },
+    "derived_from": [
+      "AR-1041",
+      "AR-1043",
+      "AR-1044",
+      "AR-1042"
+    ],
+    "extraction_method": "tool_output",
+    "generator": "schema_instance/tools/build_instance.mjs",
+    "requires_analyst_review": true
+  },
+  "confidence": {
+    "collection_confidence": "high",
+    "interpretation_required": true
+  },
+  "tags": [
+    "filesystem",
+    "web",
+    "management-content",
+    "httpd"
+  ]
+}

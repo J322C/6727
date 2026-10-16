@@ -1,0 +1,55 @@
+{
+  "evidence_id": "E-0063",
+  "schema_version": "0.1",
+  "assessment_id": "A-C9-2016",
+  "evidence_type": "protocol_observation",
+  "source": {
+    "tool": "curl",
+    "tool_version": null,
+    "method": "bounded_https_connection_attempt",
+    "collector": "Codex-executed LAN request with operator authorization; analyst review pending",
+    "collection_time": "2026-08-30T19:40:51.934Z"
+  },
+  "target_context": {
+    "target_component": "LAN HTTPS endpoint",
+    "interface": "ethernet_lan",
+    "target_address": "192.168.0.1:443"
+  },
+  "observation": {
+    "summary": "A curl connection attempt to HTTPS on 192.168.0.1:443 failed with error 7 because it could not connect; the result is bounded to the recorded target, port, client, vantage, and time.",
+    "structured_data": {
+      "tcp_port": 443,
+      "curl_exit_label": "error 7",
+      "connection_succeeded": false,
+      "tls_handshake_reached": false,
+      "bounded_to_collection_context": true,
+      "global_tls_absence_established": false
+    }
+  },
+  "provenance": {
+    "artifact_id": "AR-5036",
+    "source_locator": {
+      "line_start": 1,
+      "line_end": 1,
+      "bounded_negative_observation": true
+    },
+    "derived_from": [
+      "AR-5044"
+    ],
+    "extraction_method": "tool_output",
+    "generator": "schema_instance/tools/build_instance.mjs",
+    "requires_analyst_review": true
+  },
+  "confidence": {
+    "collection_confidence": "high",
+    "interpretation_required": true
+  },
+  "tags": [
+    "protocol",
+    "https",
+    "tls",
+    "lan",
+    "connection-failed",
+    "bounded-negative-observation"
+  ]
+}

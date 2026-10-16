@@ -1,0 +1,62 @@
+{
+  "evidence_id": "E-0070",
+  "schema_version": "0.1",
+  "assessment_id": "A-C9-2016",
+  "evidence_type": "configuration_observation",
+  "source": {
+    "tool": "web browser screenshot",
+    "tool_version": null,
+    "method": "authenticated_web_ui_visual_review",
+    "collector": "Physical DUT operator screenshot; Codex-assisted visual review; analyst review pending",
+    "collection_time": "2026-08-30T19:57:52.120Z"
+  },
+  "target_context": {
+    "target_component": "local web-management access rules",
+    "interface": "local_web_ui",
+    "target_address": "192.168.0.1"
+  },
+  "observation": {
+    "summary": "Local Management displays the rule allowing all PCs on the LAN to access the router web utility; the listed-PC restriction is unselected and its four MAC fields are empty.",
+    "structured_data": {
+      "all_lan_pcs_allowed_selected": true,
+      "listed_pcs_only_selected": false,
+      "configured_allowed_mac_entries_visible": 0,
+      "assessment_host_mac_displayed": "08-00-27-77-BE-68",
+      "access_enforcement_tested": false
+    }
+  },
+  "provenance": {
+    "artifact_id": "AR-5050",
+    "source_locator": {
+      "image_dimensions_px": {
+        "width": 829,
+        "height": 576
+      },
+      "ui_section": "Local Management rules",
+      "region_px": {
+        "x": 209,
+        "y": 85,
+        "width": 552,
+        "height": 265
+      }
+    },
+    "derived_from": [
+      "AR-5056"
+    ],
+    "extraction_method": "manual_observation",
+    "generator": "schema_instance/tools/build_instance.mjs",
+    "requires_analyst_review": true
+  },
+  "confidence": {
+    "collection_confidence": "high",
+    "interpretation_required": true
+  },
+  "tags": [
+    "configuration",
+    "web-ui",
+    "local-management",
+    "lan",
+    "access-rule",
+    "enforcement-not-tested"
+  ]
+}

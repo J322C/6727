@@ -1,0 +1,86 @@
+{
+  "evidence_id": "E-0035",
+  "schema_version": "0.1",
+  "assessment_id": "A-C9-2016",
+  "evidence_type": "network_observation",
+  "source": {
+    "tool": "Nmap",
+    "tool_version": "7.99",
+    "method": "full_tcp_port_scan",
+    "collector": "Operator Nmap scan; Codex-assisted normalization; analyst review pending",
+    "collection_time": "2026-08-29T23:50:27.424Z"
+  },
+  "target_context": {
+    "target_component": "LAN network interface",
+    "interface": "ethernet_lan",
+    "target_address": "192.168.0.1"
+  },
+  "observation": {
+    "summary": "A TCP ports 0-65535 scan reported the LAN host up, seven open TCP ports, 55,527 closed TCP ports, and 10,002 filtered TCP ports.",
+    "structured_data": {
+      "scan_protocol": "tcp",
+      "port_range": "0-65535",
+      "host_up": true,
+      "latency_seconds": 0.00094,
+      "open_ports": [
+        {
+          "port": 22,
+          "service_label": "ssh"
+        },
+        {
+          "port": 80,
+          "service_label": "http"
+        },
+        {
+          "port": 1900,
+          "service_label": "upnp"
+        },
+        {
+          "port": 1990,
+          "service_label": "stun-p1"
+        },
+        {
+          "port": 5916,
+          "service_label": "unknown"
+        },
+        {
+          "port": 20005,
+          "service_label": "btx"
+        },
+        {
+          "port": 33344,
+          "service_label": "unknown"
+        }
+      ],
+      "closed_port_count": 55527,
+      "filtered_port_count": 10002,
+      "reported_mac": "A4:2B:B0:E2:7E:82",
+      "service_version_detection_shown": false
+    }
+  },
+  "provenance": {
+    "artifact_id": "AR-4001",
+    "source_locator": {
+      "line_start": 2,
+      "line_end": 17
+    },
+    "derived_from": [
+      "AR-4005",
+      "AR-4009"
+    ],
+    "extraction_method": "tool_output",
+    "generator": "schema_instance/tools/build_instance.mjs",
+    "requires_analyst_review": true
+  },
+  "confidence": {
+    "collection_confidence": "high",
+    "interpretation_required": true
+  },
+  "tags": [
+    "network",
+    "lan",
+    "nmap",
+    "tcp",
+    "port-baseline"
+  ]
+}

@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use these materials, please cite the repository version and commit identifier."
+title: "Archer C9 Evidence and Evaluation Reference Records"
+type: dataset
+authors:
+  - family-names: Carlisle
+    given-names: Travis
+date-released: 2026-10-16
+abstract: "A limited publication bundle of evidence/provenance records, evaluation protocols, requirements context, and final assessment dispositions for an Archer C9 embedded/IoT security practicum."
+keywords:
+  - embedded security
+  - IoT security
+  - evidence provenance
+  - AI-assisted assessment

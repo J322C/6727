@@ -1,0 +1,53 @@
+{
+  "evidence_id": "E-0021",
+  "schema_version": "0.1",
+  "assessment_id": "A-C9-2016",
+  "evidence_type": "configuration_observation",
+  "source": {
+    "tool": "sed and awk",
+    "tool_version": null,
+    "method": "init_and_startup_structure_review",
+    "collector": "Codex-assisted static analysis; analyst review pending",
+    "collection_time": "2026-08-29T23:10:56.345Z"
+  },
+  "target_context": {
+    "target_component": "BusyBox init and /etc/rc.d/rcS",
+    "interface": null,
+    "target_address": null
+  },
+  "observation": {
+    "summary": "BusyBox /sbin/init uses /etc/inittab, which invokes /etc/rc.d/rcS; that script starts /usr/bin/httpd directly or through /usr/bin/tdbrun.",
+    "structured_data": {
+      "init": "/sbin/init -> ../bin/busybox",
+      "sysinit": "/etc/rc.d/rcS",
+      "server": "/usr/bin/httpd",
+      "wrapper": "/usr/bin/tdbrun"
+    }
+  },
+  "provenance": {
+    "artifact_id": "AR-1033",
+    "source_locator": {
+      "line_start": 48,
+      "line_end": 56,
+      "rootfs_path": "/etc/rc.d/rcS"
+    },
+    "derived_from": [
+      "AR-1022",
+      "AR-1024",
+      "AR-1044"
+    ],
+    "extraction_method": "tool_output",
+    "generator": "schema_instance/tools/build_instance.mjs",
+    "requires_analyst_review": true
+  },
+  "confidence": {
+    "collection_confidence": "high",
+    "interpretation_required": true
+  },
+  "tags": [
+    "firmware",
+    "init",
+    "startup",
+    "httpd"
+  ]
+}

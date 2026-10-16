@@ -1,0 +1,56 @@
+{
+  "evidence_id": "E-0062",
+  "schema_version": "0.1",
+  "assessment_id": "A-C9-2016",
+  "evidence_type": "protocol_observation",
+  "source": {
+    "tool": "curl",
+    "tool_version": null,
+    "method": "unauthenticated_http_header_request",
+    "collector": "Codex-executed LAN request with operator authorization; analyst review pending",
+    "collection_time": "2026-08-30T19:40:19.418Z"
+  },
+  "target_context": {
+    "target_component": "LAN HTTP management endpoint",
+    "interface": "ethernet_lan",
+    "target_address": "192.168.0.1:80"
+  },
+  "observation": {
+    "summary": "An unauthenticated HTTP request returned HTTP/1.1 200 OK with Server Router Webserver, Content-Type text/html, and a Basic-authentication challenge naming the TP-LINK Archer C9; no Set-Cookie header appeared.",
+    "structured_data": {
+      "status": "HTTP/1.1 200 OK",
+      "server_header": "Router Webserver",
+      "content_type": "text/html",
+      "authentication_scheme_advertised": "Basic",
+      "authentication_realm": "TP-LINK AC1750 Wireless Dual Band Gigabit Router Archer C9",
+      "set_cookie_header_observed": false,
+      "response_body_collected": false,
+      "credential_supplied": false
+    }
+  },
+  "provenance": {
+    "artifact_id": "AR-5035",
+    "source_locator": {
+      "line_start": 1,
+      "line_end": 5
+    },
+    "derived_from": [
+      "AR-5044"
+    ],
+    "extraction_method": "tool_output",
+    "generator": "schema_instance/tools/build_instance.mjs",
+    "requires_analyst_review": true
+  },
+  "confidence": {
+    "collection_confidence": "high",
+    "interpretation_required": true
+  },
+  "tags": [
+    "protocol",
+    "http",
+    "lan",
+    "basic-auth",
+    "unauthenticated",
+    "no-cookie"
+  ]
+}

@@ -1,0 +1,6 @@
+# Keep publication credentials and local/editor state out of this repository.
+git.txt
+*.tmp
+*.swp
+.DS_Store
+__pycache__/
