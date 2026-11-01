@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Source Artifact Record",
+  "type": "object",
+  "required": [
+    "artifact_id",
+    "assessment_id",
+    "artifact_type",
+    "path",
+    "sha256",
+    "source"
+  ],
+  "properties": {
+    "artifact_id": {
+      "type": "string",
+      "pattern": "^AR-[0-9]{4,}$"
+    },
+    "assessment_id": {
+      "type": "string"
+    },
+    "artifact_type": {
+      "type": "string"
+    },
+    "path": {
+      "type": "string"
+    },
+    "mime_type": {
+      "type": ["string", "null"]
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[A-Fa-f0-9]{64}$"
+    },
+    "size_bytes": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "source": {
+      "type": "object",
+      "properties": {
+        "origin": {"type": "string"},
+        "acquired_at": {"type": "string"},
+        "acquisition_method": {"type": "string"},
+        "original_filename": {"type": ["string", "null"]}
+      }
+    },
+    "notes": {
+      "type": ["string", "null"]
+    }
+  }
+}

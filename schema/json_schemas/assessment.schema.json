@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Assessment Context Record",
+  "type": "object",
+  "required": ["assessment_id", "schema_version", "target", "scope", "deployment_context"],
+  "properties": {
+    "assessment_id": {"type": "string", "pattern": "^A-[A-Za-z0-9._-]+$"},
+    "schema_version": {"type": "string"},
+    "target": {
+      "type": "object",
+      "required": ["vendor", "model", "hardware_revision", "device_type"],
+      "properties": {
+        "vendor": {"type": "string"},
+        "model": {"type": "string"},
+        "hardware_revision": {"type": "string"},
+        "firmware_version": {"type": ["string", "null"]},
+        "device_type": {"type": "string"},
+        "ownership": {"type": "string"}
+      }
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "interfaces": {"type": "array", "items": {"type": "string"}},
+        "excluded": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "deployment_context": {
+      "type": "object",
+      "properties": {
+        "role": {"type": "string"},
+        "trust_boundaries": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "threat_actors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "position"],
+        "properties": {
+          "id": {"type": "string"},
+          "position": {"type": "string"},
+          "privileges": {"type": "string"}
+        }
+      }
+    }
+  }
+}

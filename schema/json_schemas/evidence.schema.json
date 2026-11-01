@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evidence Record",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "schema_version",
+    "assessment_id",
+    "evidence_type",
+    "source",
+    "observation",
+    "provenance"
+  ],
+  "properties": {
+    "evidence_id": {"type": "string", "pattern": "^E-[0-9]{4,}$"},
+    "schema_version": {"type": "string"},
+    "assessment_id": {"type": "string"},
+    "evidence_type": {
+      "type": "string",
+      "enum": [
+        "firmware_observation",
+        "filesystem_observation",
+        "configuration_observation",
+        "boot_observation",
+        "hardware_observation",
+        "network_observation",
+        "runtime_observation",
+        "dynamic_test_observation",
+        "protocol_observation",
+        "manual_observation",
+        "other"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "required": ["method", "collection_time"],
+      "properties": {
+        "tool": {"type": ["string", "null"]},
+        "tool_version": {"type": ["string", "null"]},
+        "method": {"type": "string"},
+        "collector": {"type": ["string", "null"]},
+        "collection_time": {"type": "string"}
+      }
+    },
+    "target_context": {
+      "type": "object",
+      "properties": {
+        "target_component": {"type": ["string", "null"]},
+        "interface": {"type": ["string", "null"]},
+        "target_address": {"type": ["string", "null"]}
+      }
+    },
+    "observation": {
+      "type": "object",
+      "required": ["summary"],
+      "properties": {
+        "summary": {"type": "string"},
+        "structured_data": {"type": "object"}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["artifact_id", "source_locator", "extraction_method"],
+      "properties": {
+        "artifact_id": {"type": "string"},
+        "source_locator": {"type": "object"},
+        "derived_from": {"type": "array", "items": {"type": "string"}},
+        "extraction_method": {
+          "type": "string",
+          "enum": ["deterministic_parser", "manual_observation", "llm_extraction", "tool_output", "other"]
+        },
+        "generator": {"type": ["string", "null"]},
+        "requires_analyst_review": {"type": "boolean"}
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "properties": {
+        "collection_confidence": {"type": "string", "enum": ["high", "medium", "low", "unknown"]},
+        "interpretation_required": {"type": "boolean"}
+      }
+    },
+    "tags": {"type": "array", "items": {"type": "string"}}
+  }
+}

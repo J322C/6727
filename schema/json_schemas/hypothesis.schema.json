@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Security Hypothesis Record",
+  "type": "object",
+  "required": ["hypothesis_id", "assessment_id", "statement", "supporting_evidence", "status", "reasoning"],
+  "properties": {
+    "hypothesis_id": {"type": "string", "pattern": "^H-[0-9]{4,}$"},
+    "assessment_id": {"type": "string"},
+    "statement": {"type": "string"},
+    "supporting_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["evidence_id", "relationship"],
+        "properties": {
+          "evidence_id": {"type": "string"},
+          "relationship": {"type": "string"}
+        }
+      }
+    },
+    "threat_context": {
+      "type": "object",
+      "properties": {
+        "actor_id": {"type": ["string", "null"]},
+        "required_access": {"type": ["string", "null"]}
+      }
+    },
+    "status": {"type": "string", "enum": ["unvalidated", "supported", "contradicted", "modified", "closed"]},
+    "reasoning": {
+      "type": "object",
+      "required": ["summary"],
+      "properties": {
+        "summary": {"type": "string"},
+        "uncertainties": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "recommended_tests": {"type": "array", "items": {"type": "string"}},
+    "generated_by": {"type": ["string", "null"]},
+    "analyst_review_status": {"type": "string", "enum": ["pending", "accepted", "modified", "rejected"]}
+  }
+}

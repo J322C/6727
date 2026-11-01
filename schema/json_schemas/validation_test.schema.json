@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Validation Test Record",
+  "type": "object",
+  "required": ["test_id", "assessment_id", "hypothesis_id", "objective", "method", "status"],
+  "properties": {
+    "test_id": {"type": "string", "pattern": "^T-[0-9]{4,}$"},
+    "assessment_id": {"type": "string"},
+    "hypothesis_id": {"type": "string"},
+    "objective": {"type": "string"},
+    "method": {
+      "type": "object",
+      "required": ["type", "procedure"],
+      "properties": {
+        "type": {"type": "string", "enum": ["dynamic_manual", "dynamic_automated", "static_followup", "other"]},
+        "procedure": {"type": "string"}
+      }
+    },
+    "preconditions": {"type": "array", "items": {"type": "string"}},
+    "expected_outcomes": {
+      "type": "object",
+      "properties": {
+        "supports_hypothesis": {"type": "string"},
+        "contradicts_hypothesis": {"type": "string"}
+      }
+    },
+    "status": {"type": "string", "enum": ["planned", "in_progress", "completed", "cancelled"]},
+    "resulting_evidence": {"type": "array", "items": {"type": "string"}},
+    "executed_at": {"type": ["string", "null"]}
+  }
+}

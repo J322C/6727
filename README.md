@@ -1,10 +1,18 @@
-# Archer C9 Evidence and Evaluation Reference Records
+# Archer C9 Practicum Reference Records and Deliverables
 
-This repository is a deliberately limited publication bundle for the CS 6727 practicum, *Evidence-Grounded AI-Assisted Correlation for Embedded and IoT Security Assessments*. It contains the project records cited in the accompanying report and excludes the working repository, firmware images, raw captures, generated analysis outputs, condition keys, restricted evidence, credentials, session values, and device-control material.
+This repository is a deliberately limited publication bundle for the CS 6727 practicum, *Evidence-Grounded AI-Assisted Correlation for Embedded and IoT Security Assessments*. It contains the project records cited in the accompanying report plus citation-safe documentation for the prototype correlation framework and evidence-schema deliverables. It excludes the working repository, firmware images, raw captures, generated analysis outputs, condition keys, restricted evidence, credentials, session values, and device-control material.
 
 ## Scope
 
-The published material supports review of the project's evidence/provenance model, paired-evaluation protocol, frozen review boundary, reported first-cohort results, security requirements context, and final hypothesis dispositions. It is not a reproduction package for live-device testing and does not authorize interaction with a device.
+The published material supports review of the project's evidence/provenance model, paired-evaluation protocol, frozen review boundary, reported first-cohort results, security requirements context, final hypothesis dispositions, prototype workflow, and reusable schema. It is not a reproduction package for live-device testing and does not authorize interaction with a device.
+
+## Proposal deliverables available here
+
+| Proposal deliverable | Public entry point | Publication boundary |
+|---|---|---|
+| 1. Prototype correlation framework | [`framework/`](framework/) | Documents the working evidence-to-risk workflow, analyst control points, and links to the citation-safe project records that demonstrate the flow. |
+| 2. Evidence schema and provenance mechanism | [`schema/`](schema/) | Includes the reusable v0.1 JSON Schema definitions and their intended record relationships. |
+| 3. Evaluation corpus and comparative evaluation | [`evaluation/`](evaluation/) | Includes the frozen first-cohort protocol, review method, rubric, freeze record, and revealed results. The final report contains the full two-cohort synthesis and its limitations. |
 
 ## Citation map
 

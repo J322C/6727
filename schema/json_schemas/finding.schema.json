@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Validated Finding Record",
+  "type": "object",
+  "required": ["finding_id", "assessment_id", "title", "validated_hypotheses", "supporting_evidence", "validation_status"],
+  "properties": {
+    "finding_id": {"type": "string", "pattern": "^F-[0-9]{4,}$"},
+    "assessment_id": {"type": "string"},
+    "title": {"type": "string"},
+    "validated_hypotheses": {"type": "array", "items": {"type": "string"}},
+    "supporting_evidence": {"type": "array", "items": {"type": "string"}},
+    "attack_conditions": {
+      "type": "object",
+      "properties": {
+        "attacker_position": {"type": ["string", "null"]},
+        "authentication_required": {"type": ["boolean", "null"]},
+        "physical_access_required": {"type": ["boolean", "null"]}
+      }
+    },
+    "affected_boundary": {"type": ["string", "null"]},
+    "demonstrated_impact": {"type": ["string", "null"]},
+    "validation_status": {"type": "string", "enum": ["confirmed", "partially_confirmed", "not_confirmed"]},
+    "analyst_notes": {"type": ["string", "null"]}
+  }
+}
